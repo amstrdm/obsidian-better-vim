@@ -5,6 +5,7 @@ import { DEFAULT_SETTINGS, Settings, SettingsTab } from "./settings";
 import { typeSafeObjectEntries } from "./util/typeSafeObjectEntries";
 import { overrideYank } from "./util/yankEvent";
 import { markViewPlugin } from "./markViewPlugin";
+import { taboutExtension } from "./tabout";
 import { EditorView } from "@codemirror/view";
 
 export default class BetterVimPlugin extends Plugin {
@@ -31,7 +32,7 @@ export default class BetterVimPlugin extends Plugin {
         return view.editor.cm;
     }
     async onload() {
-        this.registerEditorExtension([markViewPlugin]);
+        this.registerEditorExtension([markViewPlugin, taboutExtension]);
 
         await this.loadSettings();
         this.addSettingsUI();
