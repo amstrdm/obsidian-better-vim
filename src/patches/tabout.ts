@@ -1,5 +1,6 @@
 import { createPatch } from "./patch";
 import { taboutConfig } from "../tabout";
+import { taboutExtension } from "src/tabout";
 
 /**
  * Tab-out (inspired by https://github.com/abecodes/tabout.nvim).
@@ -54,4 +55,6 @@ export default createPatch({
     unpatch: () => {
         taboutConfig.enabled = false;
     },
+
+    extension: taboutExtension,
 });
